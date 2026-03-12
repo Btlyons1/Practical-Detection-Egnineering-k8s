@@ -6,7 +6,7 @@ The [Detection Engineering Baseline](https://github.com/Btlyons1/Detection-Engin
 
 **Author:** [Brandon Lyons](https://github.com/Btlyons1)
 
-**Blog series:** [Practical Detection Engineering for Kubernetes](https://open.substack.com/pub/brandontlyons/p/practical-detection-engineering-for?r=19yefa&utm_campaign=post&utm_medium=web) -- Part 1 published, Part 2 in progress.
+**Blog series:** [Practical Detection Engineering for Kubernetes - Part 1](https://open.substack.com/pub/brandontlyons/p/practical-detection-engineering-for?r=19yefa&utm_campaign=post&utm_medium=web), [Practical Detection Engineering for Kubernetes - Part 2](https://open.substack.com/pub/brandontlyons/p/practical-detection-engineering-for-a55?r=19yefa&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true).
 
 ---
 
