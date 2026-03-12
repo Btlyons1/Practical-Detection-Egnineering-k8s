@@ -1,0 +1,367 @@
+{
+  "detection_id": "DET-2026-002",
+  "detection_name": "K8s Audit Log Behavioral Baseline",
+  "hypothesis": "If we baseline normal behavior patterns in Kubernetes audit logs, we can surface infrastructure risk and detect malicious activity before it causes harm.",
+  "data_source": "k8s_audit_events (SQLite / K8s API Server audit log)",
+  "baseline_period_start": "2026-01-26",
+  "baseline_period_end": "2026-02-25",
+  "event_volume_baseline": {
+    "total_events": 20734,
+    "daily_mean": 668.8387096774194,
+    "daily_median": 766.0,
+    "daily_p95": 990.5,
+    "daily_mad": 166.0
+  },
+  "per_entity_baselines": {},
+  "behavior_profiles": {
+    "data-scientist-carol": {
+      "known_namespaces": [
+        "jupyter-notebooks",
+        "ml-pipelines"
+      ],
+      "known_resources": [
+        "configmaps",
+        "persistentvolumeclaims",
+        "pods",
+        "secrets"
+      ],
+      "detection_method": "categorical_footprint_expansion"
+    }
+  },
+  "percentile_thresholds": {
+    "secrets_daily_p95": 17.349999999999994
+  },
+  "mad_thresholds": {},
+  "cosine_similarity_threshold": 0.7,
+  "risk_findings": {
+    "workloads_in_default": [
+      {
+        "timestamp": "2026-01-26 17:52:49+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "dan-notebook-0"
+      },
+      {
+        "timestamp": "2026-01-27 18:13:17+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "prometheus"
+      },
+      {
+        "timestamp": "2026-01-28 08:18:12+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "redis"
+      },
+      {
+        "timestamp": "2026-01-28 14:33:54+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "redis"
+      },
+      {
+        "timestamp": "2026-01-30 00:19:27+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "web-frontend"
+      },
+      {
+        "timestamp": "2026-01-30 17:11:00+00:00",
+        "user": "dev-carlos",
+        "resource": "pods",
+        "name": "legacy-api-789"
+      },
+      {
+        "timestamp": "2026-01-30 19:29:51+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "prometheus"
+      },
+      {
+        "timestamp": "2026-01-30 21:22:07+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "experiment-2024-03"
+      },
+      {
+        "timestamp": "2026-02-02 12:57:46+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "training-job-123"
+      },
+      {
+        "timestamp": "2026-02-02 15:23:43+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "web-frontend"
+      },
+      {
+        "timestamp": "2026-02-02 18:38:52+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "legacy-api-789"
+      },
+      {
+        "timestamp": "2026-02-02 19:21:41+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "prometheus-0"
+      },
+      {
+        "timestamp": "2026-02-03 16:37:33+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "nginx-ingress"
+      },
+      {
+        "timestamp": "2026-02-04 16:28:25+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "inference-server-456"
+      },
+      {
+        "timestamp": "2026-02-04 20:46:25+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "test-pod-dan"
+      },
+      {
+        "timestamp": "2026-02-05 17:26:04+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "web-frontend-abc123"
+      },
+      {
+        "timestamp": "2026-02-05 20:01:59+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "grafana"
+      },
+      {
+        "timestamp": "2026-02-05 21:37:04+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "api-server"
+      },
+      {
+        "timestamp": "2026-02-05 22:00:49+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "api-server"
+      },
+      {
+        "timestamp": "2026-02-08 14:17:54+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "legacy-api-789"
+      },
+      {
+        "timestamp": "2026-02-09 14:55:43+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "grafana"
+      },
+      {
+        "timestamp": "2026-02-09 16:15:06+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "web-frontend"
+      },
+      {
+        "timestamp": "2026-02-09 19:47:42+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "prometheus"
+      },
+      {
+        "timestamp": "2026-02-10 01:32:42+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "inference-server-456"
+      },
+      {
+        "timestamp": "2026-02-10 09:06:51+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "nginx-ingress"
+      },
+      {
+        "timestamp": "2026-02-10 22:54:35+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "dan-notebook-0"
+      },
+      {
+        "timestamp": "2026-02-11 17:40:55+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "worker-ghi789"
+      },
+      {
+        "timestamp": "2026-02-12 16:39:05+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "nginx-ingress-xyz"
+      },
+      {
+        "timestamp": "2026-02-12 16:43:49+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "redis"
+      },
+      {
+        "timestamp": "2026-02-12 17:08:25+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "redis"
+      },
+      {
+        "timestamp": "2026-02-13 18:33:43+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "inference-server-456"
+      },
+      {
+        "timestamp": "2026-02-17 20:39:11+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "redis"
+      },
+      {
+        "timestamp": "2026-02-17 22:52:17+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "postgres"
+      },
+      {
+        "timestamp": "2026-02-18 20:10:58+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "experiment-2024-03"
+      },
+      {
+        "timestamp": "2026-02-19 12:29:04+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "nginx-ingress-xyz"
+      },
+      {
+        "timestamp": "2026-02-19 20:21:08+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "training-job-123"
+      },
+      {
+        "timestamp": "2026-02-20 13:46:36+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "postgres"
+      },
+      {
+        "timestamp": "2026-02-23 00:59:20+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "inference-server-456"
+      },
+      {
+        "timestamp": "2026-02-23 15:25:16+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "api-server-def456"
+      },
+      {
+        "timestamp": "2026-02-24 13:22:06+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "pods",
+        "name": "legacy-api-789"
+      },
+      {
+        "timestamp": "2026-02-24 14:25:20+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "grafana"
+      },
+      {
+        "timestamp": "2026-02-25 19:31:00+00:00",
+        "user": "system:kube-controller-manager",
+        "resource": "deployments",
+        "name": "prometheus"
+      }
+    ],
+    "rbac_modifications": [
+      {
+        "timestamp": "2026-02-10 04:46:00+00:00",
+        "user": "system:serviceaccount:jupyter-notebooks:notebook-sa",
+        "verb": "create",
+        "resource": "clusterrolebindings",
+        "name": "backdoor-admin-binding"
+      },
+      {
+        "timestamp": "2026-02-10 04:47:00+00:00",
+        "user": "system:serviceaccount:jupyter-notebooks:notebook-sa",
+        "verb": "create",
+        "resource": "rolebindings",
+        "name": "escalated-binding"
+      },
+      {
+        "timestamp": "2026-02-16 14:08:00+00:00",
+        "user": "data-scientist-carol",
+        "verb": "create",
+        "resource": "rolebindings",
+        "name": "escalated-binding"
+      }
+    ],
+    "anonymous_access": [
+      {
+        "timestamp": "2026-02-07 02:30:00+00:00",
+        "resource": "pods",
+        "namespace": null,
+        "result": "deny"
+      },
+      {
+        "timestamp": "2026-02-07 02:30:03+00:00",
+        "resource": "namespaces",
+        "namespace": null,
+        "result": "deny"
+      },
+      {
+        "timestamp": "2026-02-07 02:30:06+00:00",
+        "resource": "secrets",
+        "namespace": null,
+        "result": "deny"
+      },
+      {
+        "timestamp": "2026-02-07 02:30:09+00:00",
+        "resource": "nodes",
+        "namespace": null,
+        "result": "deny"
+      },
+      {
+        "timestamp": "2026-02-07 02:30:12+00:00",
+        "resource": "deployments",
+        "namespace": null,
+        "result": "deny"
+      },
+      {
+        "timestamp": "2026-02-07 02:30:15+00:00",
+        "resource": "healthz",
+        "namespace": null,
+        "result": "deny"
+      },
+      {
+        "timestamp": "2026-02-07 02:30:18+00:00",
+        "resource": "version",
+        "namespace": null,
+        "result": "deny"
+      },
+      {
+        "timestamp": "2026-02-07 02:30:21+00:00",
+        "resource": "secrets",
+        "namespace": "kube-system",
+        "result": "deny"
+      }
+    ]
+  },
+  "generated_at": "2026-03-11T20:58:17.712345",
+  "notes": "Generated by k8s_audit_baseline_notebook.ipynb. Baseline window: 2026-01-26 \u2013 2026-02-25 (31 days). Primary detection method for Section 6a is categorical footprint expansion (set membership on namespace + resource type), not cosine similarity. See outputs/ for visualizations."
+}
